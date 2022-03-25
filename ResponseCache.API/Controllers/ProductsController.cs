@@ -1,22 +1,26 @@
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using ResponseCache.Application.Features.Queries.GetAllProducts;
 
 namespace ResponseCache.API.Controllers
 {
     [ApiController]
     [Route("[controller]")]
     public class ProductsController : ControllerBase
-    {        
-        private readonly ILogger<ProductsController> _logger;
+    {
+        private readonly IMediator _mediator;
 
-        public ProductsController(ILogger<ProductsController> logger)
+        public ProductsController(IMediator mediator)
         {
-            _logger = logger;
+            _mediator = mediator;
         }
 
-        [HttpGet(Name = "GetWeatherForecast")]
-        public IActionResult Get()
+        [HttpGet]
+        public async Task<IActionResult> Get()
         {
-            return Ok();
+            var request = new GetAllProductsQuery();
+            var result = await _mediator.Send(request);
+            return Ok(result);
         }
     }
 }
