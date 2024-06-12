@@ -10,12 +10,24 @@
     <PackageReference Include="MediatR" Version="10.0.1" />
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="10.0.1" />
     <PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="6.0.3" />
+    <PackageReference Include="Roslynator.Analyzers" Version="4.12.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\ResponseCache.Application\ResponseCache.Application.csproj" />
     <ProjectReference Include="..\ResponseCache.Infra.DB\ResponseCache.Infra.DB.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EditorConfigFiles Remove="C:\Users\andre\OneDrive\Área de Trabalho\sonar\SERVICE\response-cache\ResponseCache.API\.editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="C:\Users\andre\OneDrive\Área de Trabalho\sonar\SERVICE\response-cache\ResponseCache.API\.editorconfig" />
   </ItemGroup>
 
 </Project>

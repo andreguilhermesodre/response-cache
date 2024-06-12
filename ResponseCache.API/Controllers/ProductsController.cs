@@ -8,18 +8,18 @@ namespace ResponseCache.API.Controllers
     [Route("[controller]")]
     public class ProductsController : ControllerBase
     {
-        private readonly IMediator _mediator;
+        private readonly IMediator mediator;
 
         public ProductsController(IMediator mediator)
         {
-            _mediator = mediator;
+            this.mediator = mediator;
         }
 
         [HttpGet]
-        public async Task<IActionResult> Get()
+        public async Task<IActionResult> Get(string test)
         {
             var request = new GetAllProductsQuery();
-            var result = await _mediator.Send(request);
+            var result = await mediator.Send(request);
             return Ok(result);
         }
     }
